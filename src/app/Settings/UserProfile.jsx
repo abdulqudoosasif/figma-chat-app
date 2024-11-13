@@ -10,7 +10,7 @@ import data from '../../assets/images/Data.png'
 import users from '../../assets/images/Users.png'
 import { TouchableOpacity } from 'react-native'
 
-const index = () => {
+const UserProfile = () => {
     return (
 
         <View>
@@ -38,7 +38,7 @@ const index = () => {
                                 <Text className='text-lg font-medium'>Chat</Text>
                                 <Text className='text-sm font-light'>Chat history, theme, wallpapers</Text>
                             </View>
-                        </TouchableOpacity>
+                        </TouchableOpacity> 
                         <TouchableOpacity className='flex-row items-center gap-5 pb-10 '>
                             <View className='bg-[#F2F8F7] rounded-full px-3 py-2'><Image source={notification} className='w-7 h-7' /></View>
                             <View>
@@ -74,4 +74,4 @@ const index = () => {
     )
 }
 
-export default index
+export default UserProfile
