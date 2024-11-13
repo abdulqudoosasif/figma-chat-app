@@ -5,13 +5,14 @@ import "../../global.css";
 
 const _layout = () => {
   return (
-<Stack >
-    <Stack.Screen name='index' options={{headerShown:false}}/>
-    <Stack.Screen name='Screens' options={{headerShown:false}}/>
-    <Stack.Screen name='(tabs)' options={{headerShown:false}}/>
-    <Stack.Screen name='Inbox'  options={{headerShown:false}}/>
-    <Stack.Screen name='channelInbox'  options={{headerShown:false}}/>
-</Stack>
+    <Stack >
+      <Stack.Screen name='index' options={{ headerShown: false }} />
+      <Stack.Screen name='Screens' options={{ headerShown: false }} />
+      <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+      <Stack.Screen name='Inbox' options={{ headerShown: false }} />
+      <Stack.Screen name='channelInbox' options={{ headerShown: false }} />
+      <Stack.Screen name='Settings' options={{ headerShown: false }} />
+    </Stack>
   )
 }
 

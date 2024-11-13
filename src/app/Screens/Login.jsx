@@ -8,8 +8,8 @@ import { Link, router } from 'expo-router';
 import { TouchableOpacity } from 'react-native';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('tt');
+  const [password, setPassword] = useState('yufty');
   const [error, setError] = useState('');
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 

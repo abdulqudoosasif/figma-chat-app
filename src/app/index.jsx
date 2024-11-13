@@ -9,7 +9,7 @@ const OnBoarding = () => {
   const router = useRouter();
 
   const toSignUpPage = () => {
-    router.push('/Inbox');
+    router.push('/Settings');
   };
 
   return (
