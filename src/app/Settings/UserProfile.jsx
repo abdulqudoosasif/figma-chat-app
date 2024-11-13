@@ -16,7 +16,7 @@ const UserProfile = () => {
         <View>
             <SettingsHeader />
             <View className='bg-black h-full'>
-                <View className='bg-white h-full mt-5 rounded-t-[40px] px-8 py-12  '>
+                <View className='bg-white h-full mt-5 rounded-t-3xl px-8 py-12  '>
                     <View className='flex-row items-center gap-6 border-b border-gray-300 pb-8 '>
                         <Image source={pfp} className='w-16 h-16' />
                         <View className='flex-col justify-between'>
