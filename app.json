@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "ChatApplication",
-    "slug": "ChatApplication",
+    "name": "Quick Talk",
+    "slug": "Quick Talk",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "Quick Talk",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
