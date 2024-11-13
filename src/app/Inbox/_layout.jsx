@@ -35,7 +35,8 @@ const _layout = () => {
             headerStyle: { backgroundColor: '#f8f8f8' },
           }}
         />
-        {/* <Stack.Screen name="ProductDetailScreen" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="BuyNowScreen" options={{ headerTitle:'Product', headerBackTitle:'Back'}} />
+        
     </Stack>
   )
 }

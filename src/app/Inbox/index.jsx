@@ -1,10 +1,27 @@
 import React, { useState } from "react";
-import {View,Text,TextInput,TouchableOpacity,KeyboardAvoidingView,Platform,ScrollView,SafeAreaView,Alert,Image,Modal,TouchableWithoutFeedback,Keyboard,} from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  SafeAreaView,
+  Alert,
+  Image,
+  Modal,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Feather from "@expo/vector-icons/Feather";
+import { useNavigation, useRouter } from "expo-router";
 
-const Inbox = () => {
+const Index = () => {
+  const router = useRouter();
+  const navigation = useNavigation();
   const [messages, setMessages] = useState([
     { id: 1, text: "Hello!" },
     { id: 2, text: "How are you?" },
@@ -57,7 +74,7 @@ const Inbox = () => {
         ...prevSelectedMedia,
         ...result.assets.map((asset) => asset.uri),
       ]);
-      setShowOptions(false); // Close options after selecting
+      setShowOptions(false);
     }
   };
 
@@ -130,9 +147,12 @@ const Inbox = () => {
     setModalImage(imageUri);
     setModalVisible(true);
   };
-  
-
-
+  const handleBuyNow = (product) => {
+    router.push({
+      pathname: "/Inbox/BuyNowScreen",
+      // params: { image: product.image , price: product.price },
+    });
+  };
   return (
     <SafeAreaView className="flex-1 bg-white">
       <TouchableWithoutFeedback
@@ -170,7 +190,7 @@ const Inbox = () => {
                         ${message.product.price}
                       </Text>
                       <TouchableOpacity
-                        // onPress={() => handleBuyNow(message.product)}
+                        onPress={() => handleBuyNow(message.product)}
                         className="px-2 py-2 rounded-lg bg-white ml-4 flex"
                       >
                         <Text className="text-black font-semibold text-xs">
@@ -265,14 +285,12 @@ const Inbox = () => {
                 className="mr-3"
               />
             </TouchableOpacity>
-
             <TextInput
               value={newMessage}
               onChangeText={setNewMessage}
               placeholder="Type a message"
               className="flex-1 p-3 rounded-full bg-gray-100 mr-3"
             />
-
             {newMessage.trim().length > 0 || selectedMedia.length > 0 ? (
               <TouchableOpacity onPress={handleSend} className="mr-3">
                 <MaterialCommunityIcons name="send" size={24} color="#20A090" />
@@ -360,4 +378,4 @@ const Inbox = () => {
   );
 };
 
-export default Inbox;
+export default Index;
