@@ -4,7 +4,7 @@ import ChannelTitle from './channelChats/ChannelTitle'
 
 const Chats = () => {
   return (
-    <View >
+    <View  className=''>
    <ChannelTitle/>
    <ChannelTitle/>
    <ChannelTitle/>
