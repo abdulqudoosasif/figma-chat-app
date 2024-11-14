@@ -12,6 +12,7 @@ const _layout = () => {
       <Stack.Screen name='Inbox' options={{ headerShown: false }} />
       <Stack.Screen name='channelInbox' options={{ headerShown: false }} />
       <Stack.Screen name='Settings' options={{ headerShown: false }} />
+      <Stack.Screen name='Search' options={{ headerShown: false }} />
     </Stack>
   )
 }

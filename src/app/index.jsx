@@ -4,12 +4,13 @@ import { Link, useRouter } from 'expo-router';
 import appleLogo from '../assets/images/Apple-white.png';
 import google from '../assets/images/Google.png';
 import facebook from '../assets/images/facebook.png';
+import SearchScreen from './Search/SearchScreen';
 
 const OnBoarding = () => {
   const router = useRouter();
 
   const toSignUpPage = () => {
-    router.push('/Settings');
+    router.push('/SignUp');
   };
 
   return (

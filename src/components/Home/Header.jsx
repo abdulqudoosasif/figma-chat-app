@@ -14,11 +14,14 @@ const Header = () => {
   const handleSettingClick = () => {
     router.push('/Settings')
   }
+  const handleSearch = () => {
+    router.push('/Search')
+  }
   return (
     <View className='flex-row justify-between items-center pt-12 pb-3 px-6'>
-      <View className='border border-white rounded-full p-2 w-fit'>
-        <Image className='w-4 h-4' source={search} />
-      </View>
+      <TouchableOpacity  className='border border-white rounded-full p-2 w-fit' onPress={handleSearch}>
+        <Image className='w-4 h-4' source={search}  />
+      </TouchableOpacity>
       <View>
         <Text className='text-white text-xl font-medium'>Home</Text>
       </View>
