@@ -32,7 +32,7 @@ const _layout = () => {
                 headerShown: false,
                 title: 'Profile',
                 tabBarIcon: () => (
-                 <Image source={pfp}  className='h-8 mt-1 w-8 rounded-full object-cover'/>
+                 <Image source={pfp}  className='h-8 mt-3 mb-4 w-8 rounded-full object-cover'/>
                 )
             }} />
         </Tabs>
