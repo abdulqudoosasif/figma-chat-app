@@ -7,13 +7,13 @@ import videoCam from '../../assets/images/vid-cam.png'
 
 const CallsTitle = () => {
     return (
-        <View className='flex-col gap-2  py-2'>
-            <View className='flex-row justify-between items-center border-b border-gray-300 pb-3'>
+        <View className='flex-col gap-2  p-2 border-b border-gray-300'>
+            <View className='flex-row justify-between items-center '>
                 <View className='flex-row items-center gap-5 px-2'>
                     <Image source={pfp} className='rounded-full w-16 h-16' />
                     <View>
-                        <Text className='text-lg font-semibold'>Caller Name</Text>
-                        <Text className='flex-row gap-2 text-sm font-light'><Image source={incommingCall} /> Date, Time</Text>
+                        <Text className='text-[15px] font-medium '>Caller Name</Text>
+                        <Text className='flex-row  text-sm font-light'><Image source={incommingCall} /> Date, Time</Text>
                     </View>
                 </View>
                 <View className='flex-row gap-5'>
