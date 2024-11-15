@@ -26,7 +26,7 @@ const BuyNowScreen = ({ route }) => {
           </View>
           {/* Order Button */}
           <TouchableOpacity className="bg-teal-500 py-2 px-4 rounded-full my-2">
-            <Text className="text-white font-bold">Order Now</Text>
+            <Text className="text-white ">Order Now</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -36,7 +36,7 @@ const BuyNowScreen = ({ route }) => {
    <Text className="text-xl font-medium mt-5">How To Purchase</Text>
       <View className="flex-row  gap-3 my-3">
         <TouchableOpacity className="bg-teal-500 py-2 px-7 rounded-full">
-          <Text className="text-white text-[16px]">Intown</Text>
+          <Text className="text-white ">Intown</Text>
         </TouchableOpacity>
         <TouchableOpacity className="bg-[#EDF7F6] py-2 px-11 rounded-full">
           <Text className="text-black ">OT</Text>
@@ -46,7 +46,7 @@ const BuyNowScreen = ({ route }) => {
 
    <View className='items-center mt-5 mb-3'>
    <TouchableOpacity className="bg-teal-500 py-2 px-16 rounded-full my-2 items-center">
-        <Text className="text-white font-bold">Send a Verification Video</Text>
+        <Text className="text-white ">Send a Verification Video</Text>
       </TouchableOpacity>
       <Text className="text-xs text-gray-500 mt-1">
           $10,000 in hand or Direct written on paper
@@ -59,13 +59,13 @@ const BuyNowScreen = ({ route }) => {
       </TouchableOpacity>
 
       <TouchableOpacity className="bg-teal-500 py-2 px-4 rounded-full my-2">
-        <Text className="text-white font-medium">Order Received</Text>
+        <Text className="text-white ">Order Received</Text>
       </TouchableOpacity>
   </View>
 
     <View className='items-center mt-3 mb-5'>
     <TouchableOpacity className="bg-[#EDF7F6] py-2 px-11 rounded-full my-2 items-center">
-        <Text className="text-teal-500 font-bold">Shipping Channel link</Text>
+        <Text className="text-black">Shipping Channel link</Text>
       </TouchableOpacity>
         <Text className="text-xs text-gray-500 mt-1 text-center">
           Your payment has been received; this channel will give you updates

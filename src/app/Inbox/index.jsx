@@ -21,7 +21,6 @@ import { useNavigation, useRouter } from "expo-router";
 
 const Index = () => {
   const router = useRouter();
-  const navigation = useNavigation();
   const [messages, setMessages] = useState([
     { id: 1, text: "Hello!" },
     { id: 2, text: "How are you?" },
