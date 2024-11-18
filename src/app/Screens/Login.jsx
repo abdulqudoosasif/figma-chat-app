@@ -1,5 +1,5 @@
 import { View, Text, Image, TextInput } from 'react-native';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState, useEffect } from 'react';
 import appleLogo from '../../assets/images/Apple-black.png';
 import google from '../../assets/images/Google.png';
@@ -8,8 +8,8 @@ import { Link, router } from 'expo-router';
 import { TouchableOpacity } from 'react-native';
 
 const Login = () => {
-  const [username, setUsername] = useState('tt');
-  const [password, setPassword] = useState('yufty');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
@@ -19,39 +19,39 @@ const Login = () => {
 
   const handleLogin = async () => {
  
-    // try {
-    //   const response = await fetch('https://e187-2407-d000-8-6530-f92a-27ec-3334-8c07.ngrok-free.app/api/token/', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ username, password }),
-    //   });
+    try {
+      const response = await fetch('https://b53a-182-183-11-69.ngrok-free.app/api/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-    //   if (response.status === 200) {
-    //     const data = await response.json();
-    //     // console.log('API Response:', data); // Log the response data
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log('API Response:', data); // Log the response data
 
-    //     if (data.access) {
-    //       await AsyncStorage.setItem('token', data.access);
-    //       // await AsyncStorage.setItem('refreshToken', data.refresh);
-    //       setError(''); // Clear previous errors
-    //       // console.log('Token saved:', data.access); // Log token saving
-    //       // console.log('Token saved:', data.refresh); // Log token saving
+        if (data.access) {
+          await AsyncStorage.setItem('token', data.access);
+          await AsyncStorage.setItem('refreshToken', data.refresh);
+          setError(''); // Clear previous errors
+          console.log('Token saved:', data.access); // Log token saving
+          console.log('Token saved:', data.refresh); // Log token saving
           router.push('/Home'); 
-    //     } else {
-    //       setError('Unexpected response from the server.');
-    //       console.error('Missing access in response:', data); 
-    //     }
-    //   } else {
-    //     const errorData = await response.json();
-    //     console.error('Error response:', errorData);
-    //     setError(errorData.detail || 'Invalid username or password');
-    //   }
-    // } catch (err) {
-    //   console.error('Fetch error:', err); 
-    //   setError('An error occurred. Please try again.');
-    // }
+        } else {
+          setError('Unexpected response from the server.');
+          console.error('Missing access in response:', data); 
+        }
+      } else {
+        const errorData = await response.json();
+        console.error('Error response:', errorData);
+        setError(errorData.detail || 'Invalid username or password');
+      }
+    } catch (err) {
+      console.error('Fetch error:', err); 
+      setError('An error occurred. Please try again.');
+    }
   };
 
 
