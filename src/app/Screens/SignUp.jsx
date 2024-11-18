@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, ScrollView, KeyboardAvoidingView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
 const SignUp = () => {
@@ -26,7 +26,7 @@ const SignUp = () => {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/register/', {
+            const response = await fetch('https://b53a-182-183-11-69.ngrok-free.app/api/register/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +56,9 @@ const SignUp = () => {
     };
 
     return (
-        <View className='pt-10 px-5 h-full bg-white'>
+     
+       
+        <View className='pt-10 px-5  bg-white'>
             <View className='flex-col items-center'>
                 <Text className='text-lg font-semibold mt-20'>Sign Up with Email</Text>
                 <Text className='text-center text-[#797C7B] px-10 my-3'>
@@ -117,6 +119,8 @@ const SignUp = () => {
                 </TouchableOpacity>
             </View>
         </View>
+       
+       
     );
 };
 
