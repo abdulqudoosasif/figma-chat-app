@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async () => {
  
     try {
-      const response = await fetch('https://b53a-182-183-11-69.ngrok-free.app/api/register/', {
+      const response = await fetch('https://b53a-182-183-11-69.ngrok-free.app/api/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
