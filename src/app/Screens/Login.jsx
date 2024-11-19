@@ -30,14 +30,14 @@ const Login = () => {
 
       if (response.status === 200) {
         const data = await response.json();
-        console.log('API Response:', data); // Log the response data
+        console.log('API Response:', data); 
 
         if (data.access) {
           await AsyncStorage.setItem('token', data.access);
           await AsyncStorage.setItem('refreshToken', data.refresh);
-          setError(''); // Clear previous errors
-          console.log('Token saved:', data.access); // Log token saving
-          console.log('Token saved:', data.refresh); // Log token saving
+          setError('');
+          console.log('Token saved:', data.access); 
+          console.log('Token saved:', data.refresh);
           router.push('/Home'); 
         } else {
           setError('Unexpected response from the server.');
