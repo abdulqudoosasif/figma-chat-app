@@ -42,7 +42,7 @@ const ProfilHeader = () => {
               <Ionicons name="person-add" size={20} color="black" />
               <Text style={{ marginLeft: 10 }}>Add User</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
+            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }} onPress={handleChannelClick}>
               <Ionicons name="chatbox-ellipses" size={20} color="black" />
               <Text style={{ marginLeft: 10 }}>Create Channel</Text>
             </TouchableOpacity>

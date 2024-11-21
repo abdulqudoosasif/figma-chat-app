@@ -17,6 +17,9 @@ const Header = () => {
   const handleSearch = () => {
     router.push('/Search')
   }
+  const handleChannelClick =()=>{
+    router.push('/Group')
+  }
   return (
     <View className='flex-row justify-between items-center pt-12 pb-3 px-6'>
       <TouchableOpacity  className='border border-white rounded-full p-2 w-fit' onPress={handleSearch}>
@@ -58,7 +61,7 @@ const Header = () => {
               <Ionicons name="person-add" size={20} color="black" />
               <Text style={{ marginLeft: 10 }}>Add User</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
+            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}   onPress={handleChannelClick}>
               <Ionicons name="chatbox-ellipses" size={20} color="black" />
               <Text style={{ marginLeft: 10 }}>Create Channel</Text>
             </TouchableOpacity>

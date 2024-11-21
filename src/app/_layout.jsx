@@ -11,8 +11,9 @@ const _layout = () => {
       <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
       <Stack.Screen name='Inbox' options={{ headerShown: false }} />
       <Stack.Screen name='channelInbox' options={{ headerShown: false }} />
-      <Stack.Screen name='Settings' options={{ headerShown: false }} />
+      <Stack.Screen name='ProfileScreens' options={{ headerShown: false }} />
       <Stack.Screen name='Search' options={{ headerShown: false }} />
+      <Stack.Screen name='Group' options={{ headerShown: false }} />
     </Stack>
   )
 }

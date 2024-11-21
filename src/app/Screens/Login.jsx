@@ -8,8 +8,8 @@ import { Link, router } from 'expo-router';
 import { TouchableOpacity } from 'react-native';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('abdul-qudoos');
+  const [password, setPassword] = useState('Teamwork12');
   const [error, setError] = useState('');
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
@@ -38,7 +38,7 @@ const Login = () => {
           setError('');
           console.log('Token saved:', data.access); 
           console.log('Token saved:', data.refresh);
-          router.push('/Home'); 
+          router.push('/ProfileScreens/AboutUser'); 
         } else {
           setError('Unexpected response from the server.');
           console.error('Missing access in response:', data); 
