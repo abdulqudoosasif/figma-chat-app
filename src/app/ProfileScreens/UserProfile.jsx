@@ -9,10 +9,12 @@ import notification from '../../assets/images/bell.png';
 import help from '../../assets/images/Help.png';
 import data from '../../assets/images/Data.png';
 import users from '../../assets/images/Users.png';
+import { useRouter } from 'expo-router';
 
 const UserProfile = () => {
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const router =useRouter();
 useEffect(()=>{
   const fetchProfile=async()=>{
     try{
@@ -22,7 +24,7 @@ useEffect(()=>{
         console.log('No token found ')
         return;
     }
-    const response= await fetch("https://b53a-182-183-11-69.ngrok-free.app/api/profile/",{
+    const response= await fetch("https://a1a0-2407-d000-8-6df2-4c57-571-51ef-11d2.ngrok-free.app/api/profile/",{
         method:'GET',
         headers:{
             Authorization:`Bearer ${token}`,
@@ -63,20 +65,29 @@ fetchProfile()
             </View>
         );
     }
-    const { profile_picture, bio, status, username } = userData;
-
+    const { profile_picture, bio, status, name } = userData;
+   const handleAbout=()=>{
+    router.push('ProfileScreens/AboutUser')
+   }
     return (
         <View>
             <SettingsHeader />
             <View className="bg-black h-full">
                 <View className="bg-white h-full mt-5 rounded-t-3xl px-8 py-12">
-                    <View className="flex-row items-center gap-6 border-b border-gray-300 pb-8">
+                    <View className='flex-row border-b border-gray-300 pb-8 justify-between items-center'>
+                    <View className="flex-row items-center gap-6 ">
                         <Image source={profile_picture ? { uri: profile_picture } : pfp} className="w-16 h-16 rounded-full" />
                         <View className="flex-col justify-between">
-                        <Text className="font-semibold text-xl tracking-wide">{username || 'Username'}</Text>
+                        <Text className="font-semibold text-xl tracking-wide">{name || 'Username'}</Text>
                             <Text className="text-sm font-light">{bio || 'About User...'}</Text>
                             <Text className="text-sm font-light">{status || 'No status available'}</Text>
                         </View>
+                    </View>
+                    <TouchableOpacity onPress={handleAbout}>
+                        <Text className='font-semibold text-blue-500'>
+                            Edit Profile
+                        </Text>
+                    </TouchableOpacity>
                     </View>
                     <View className="flex-col py-10">
                         <TouchableOpacity className="flex-row items-center gap-5 pb-10">

@@ -44,7 +44,7 @@ const ProfilHeader = () => {
             </TouchableOpacity>
             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }} onPress={handleChannelClick}>
               <Ionicons name="chatbox-ellipses" size={20} color="black" />
-              <Text style={{ marginLeft: 10 }}>Create Channel</Text>
+              <Text style={{ marginLeft: 10 }}>Create Group</Text>
             </TouchableOpacity>
             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }} onPress={handleSettingClick}>
               <Ionicons name="settings" size={20} color="black" />

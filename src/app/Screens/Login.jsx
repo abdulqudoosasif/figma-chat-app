@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async () => {
  
     try {
-      const response = await fetch('https://b53a-182-183-11-69.ngrok-free.app/api/token/', {
+      const response = await fetch('https://a1a0-2407-d000-8-6df2-4c57-571-51ef-11d2.ngrok-free.app/api/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const Login = () => {
           setError('');
           console.log('Token saved:', data.access); 
           console.log('Token saved:', data.refresh);
-          router.push('/ProfileScreens/AboutUser'); 
+          router.push('/Home'); 
         } else {
           setError('Unexpected response from the server.');
           console.error('Missing access in response:', data); 
