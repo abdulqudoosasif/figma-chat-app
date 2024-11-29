@@ -25,6 +25,18 @@ const _layout = () => {
            
           }}
         />
+         <Stack.Screen
+         name='Admin-Inbox'
+         />
+        <Stack.Screen
+         name='NewChannelScreen'
+         
+         options={{
+
+           headerShown:false
+          }
+         }
+         />
     </Stack>
   )
 }

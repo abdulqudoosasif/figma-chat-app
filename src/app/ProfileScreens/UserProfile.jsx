@@ -24,7 +24,7 @@ useEffect(()=>{
         console.log('No token found ')
         return;
     }
-    const response= await fetch("https://a1a0-2407-d000-8-6df2-4c57-571-51ef-11d2.ngrok-free.app/api/profile/",{
+    const response= await fetch("https://b7e4-2407-d000-8-43ef-9880-55-a520-2c03.ngrok-free.app/api/profile/",{
         method:'GET',
         headers:{
             Authorization:`Bearer ${token}`,
@@ -65,7 +65,7 @@ fetchProfile()
             </View>
         );
     }
-    const { profile_picture, bio, status, name } = userData;
+    const { profile_picture, bio, status, first_name } = userData;
    const handleAbout=()=>{
     router.push('ProfileScreens/AboutUser')
    }
@@ -78,7 +78,7 @@ fetchProfile()
                     <View className="flex-row items-center gap-6 ">
                         <Image source={profile_picture ? { uri: profile_picture } : pfp} className="w-16 h-16 rounded-full" />
                         <View className="flex-col justify-between">
-                        <Text className="font-semibold text-xl tracking-wide">{name || 'Username'}</Text>
+                        <Text className="font-semibold text-xl tracking-wide">{first_name || 'Username'}</Text>
                             <Text className="text-sm font-light">{bio || 'About User...'}</Text>
                             <Text className="text-sm font-light">{status || 'No status available'}</Text>
                         </View>

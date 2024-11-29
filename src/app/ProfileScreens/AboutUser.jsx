@@ -70,12 +70,12 @@ const AboutUser = () => {
         });
       }
   
-      formData.append("name", userData.name);
+      formData.append("first_name", userData.name);
       formData.append("bio", userData.bio);
       formData.append("status", userData.status);
   
       const response = await fetch(
-        "https://a1a0-2407-d000-8-6df2-4c57-571-51ef-11d2.ngrok-free.app/api/profile/",
+        "https://b7e4-2407-d000-8-43ef-9880-55-a520-2c03.ngrok-free.app/api/profile/",
         {
           method: "PATCH",
           headers: {

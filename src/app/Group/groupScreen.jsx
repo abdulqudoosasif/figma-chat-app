@@ -26,7 +26,7 @@ export default function CreateGroup() {
 
       {/* Group Description */}
       <Text className="text-gray-500 text-2xl mb-2">Group Description</Text>
-      <Text className='text-[62px] font-semibold'>
+      <Text className='text-[10vw] font-semibold'>
       Make Group for Team Work
       </Text>
 

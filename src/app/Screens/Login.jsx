@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async () => {
  
     try {
-      const response = await fetch('https://a1a0-2407-d000-8-6df2-4c57-571-51ef-11d2.ngrok-free.app/api/token/', {
+      const response = await fetch('https://b7e4-2407-d000-8-43ef-9880-55-a520-2c03.ngrok-free.app/api/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const Login = () => {
         />
       </View>
       {error ? <Text className="text-red-500 text-sm mt-2">{error}</Text> : null}
-      <View className="top-64 justify-center items-center gap-2">
+      <View className="top-24 justify-center items-center gap-2">
         <TouchableOpacity
           onPress={handleLogin}
           className={`py-2 px-36 rounded-xl ${isButtonEnabled ? 'bg-[#24786D]' : 'bg-[#F3F6F6]'}`}

@@ -1,81 +1,194 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import React, { useState } from "react";
+import {View,Text,Image,TouchableOpacity,ScrollView,Alert,Modal,TextInput,KeyboardAvoidingView,Platform,} from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import { Video } from "expo-av";
+import Prodect from "../../assets/images/Product1.jpeg";
 
 const BuyNowScreen = ({ route }) => {
+  const [activeButton, setActiveButton] = useState("Intown");
+  const [isVideoSent, setIsVideoSent] = useState(false);
+  const [capturedMedia, setCapturedMedia] = useState(null);
+  const [isPaymentPopupVisible, setPaymentPopupVisible] = useState(false);
 
+  const handleButtonPress = (button) => {
+    setActiveButton(button);
+  };
+
+  const openCamera = async () => {
+    const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+    if (!permissionResult.granted) {
+      Alert.alert(
+        "Permission required",
+        "Permission to access the camera is required."
+      );
+      return;
+    }
+    const result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Videos,
+      allowsEditing: false,
+      quality: 1,
+    })
+    if (!result.canceled) {
+      setCapturedMedia(result.assets[0].uri);
+      setIsVideoSent(true);
+    }
+  };
+
+  const handlePayNow = () => {
+    setPaymentPopupVisible(true);
+  };
+
+  const closePopup = () => {
+    setPaymentPopupVisible(false);
+  };
+
+  const handleSubmitPayment = () => {
+    Alert.alert("Payment successful!", "Your payment has been processed.");
+    setTimeout(() => {
+      setPaymentPopupVisible(false); // Close the popup after 3 seconds
+    }, 3000);
+  };
 
   return (
     <ScrollView className="bg-white px-4">
-      {/* Product Image and Details */}
-      <View className="flex-row gap-4  items-center">
+      <View className="flex-row gap-5 items-center">
         <View className="mb-2">
-          <Image
-            source={{
-              uri: "https://s3-alpha-sig.figma.com/img/3e6a/9aa2/f5a5413324bee79dc6b09a321b86d207?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Sa6mjB~A78BTmHC1cOx3e4tVfZ~35k29HLKP8-~Tdppej98rmWUwVXY1V5lXKw8egEfDyLN3JDod3yc6nl4tPCVIIFhTYnLf3DWllL-op9bRl-6BlnBiDci0y8-Ks2k16LCJi8mti9WJDiZU1Z6jDeciDhJGmkl-EKa5Is6wiR7jzkH9f26LBlIBuOGtMA29zM3G8Z0Hf2iu4eVE4Xmfd-S2ckEiDOvC5ckJqprheMVAMM0K7cO6wuGASFLd0iD3GH8Ryf2QRCVwLA7g6ve6i9RgNAoro~KAK1Dk2sY-L-rrLvPxvFNbvZL02IrK-Uz8bzucVOb0gOcYJobdvxQ8GQ__",
-            }} 
-            style={{ width: 200, height: 200, resizeMode: "contain" }}
-          />
-          <Text className="text-lg font-semibold my-2">KAMIKAZI STRAWBERRY</Text>
+          <Image source={Prodect} style={{ width: 150, height: 200 }} />
+          <Text className="text-[12px] my-2">KAMIKAZI STRAWBERRY</Text>
         </View>
         <View className="flex-col justify-between items-center">
-          <View className=" items-center mb-14">
-            <Text className="text-xl font-medium mt-2">Price : $125/-</Text>
+          <View className="items-center mb-14">
+            <Text className="text-[14px] font-medium mt-2">Price : $125/-</Text>
             <Text className="text-sm text-gray-500 mb-3">
               Minimum Order $10,000/-
             </Text>
           </View>
-          {/* Order Button */}
           <TouchableOpacity className="bg-teal-500 py-2 px-4 rounded-full my-2">
-            <Text className="text-white ">Order Now</Text>
+            <Text className="text-white">Order Now</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View className="items-center">
+        <Text className="text-xl font-medium mt-5">How To Purchase</Text>
+        <View className="flex-row gap-3 my-3">
+          <TouchableOpacity
+            onPress={() => handleButtonPress("Intown")}
+            className={`py-2 px-7 rounded-full ${
+              activeButton === "Intown" ? "bg-teal-500" : "bg-[#EDF7F6]"
+            }`}
+          >
+            <Text className={activeButton === "Intown" ? "text-white" : "text-black"}>
+              Intown
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleButtonPress("OT")}
+            className={`py-2 px-11 rounded-full ${
+              activeButton === "OT" ? "bg-teal-500" : "bg-[#EDF7F6]"
+            }`}
+          >
+            <Text className={activeButton === "OT" ? "text-white" : "text-black"}>
+              OT
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      {/* How To Purchase Section */}
-   <View className='items-center'>
-   <Text className="text-xl font-medium mt-5">How To Purchase</Text>
-      <View className="flex-row  gap-3 my-3">
-        <TouchableOpacity className="bg-teal-500 py-2 px-7 rounded-full">
-          <Text className="text-white ">Intown</Text>
+      <View className="items-center mt-5 mb-3">
+        <TouchableOpacity
+          onPress={openCamera}
+          className="bg-teal-500 py-2 px-16 rounded-full my-2 items-center"
+        >
+          <Text className="text-white">Send a Verification Video</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-[#EDF7F6] py-2 px-11 rounded-full">
-          <Text className="text-black ">OT</Text>
-        </TouchableOpacity>
-      </View>
-   </View>
-
-   <View className='items-center mt-5 mb-3'>
-   <TouchableOpacity className="bg-teal-500 py-2 px-16 rounded-full my-2 items-center">
-        <Text className="text-white ">Send a Verification Video</Text>
-      </TouchableOpacity>
-      <Text className="text-xs text-gray-500 mt-1">
+        <Text className="text-xs text-gray-500 mt-1">
           $10,000 in hand or Direct written on paper
         </Text>
-   </View>
+      </View>
 
-  <View className='items-center gap-4'> 
-  <TouchableOpacity className="bg-[#EDF7F6] py-2 px-4  rounded-full my-2">
-        <Text className="text-black ">Pay Now</Text>
-      </TouchableOpacity>
+      {isVideoSent && capturedMedia && (
+        <View className="items-center mt-3">
+          <Text className="text-gray-600 mb-2">Video sent successfully!</Text>
+          <Video
+            source={{ uri: capturedMedia }}
+            style={{ width: 200, height: 300 }}
+            useNativeControls
+            resizeMode="contain"
+          />
+          <View className="items-center mt-5">
+            <TouchableOpacity
+              onPress={handlePayNow}
+              className="bg-teal-500 py-2 px-16 rounded-full my-2 items-center"
+            >
+              <Text className="text-white">Pay Now</Text>
+            </TouchableOpacity>
+            <Text className="text-xs text-gray-500 mt-1">
+              Proceed with payment to confirm your order.
+            </Text>
+          </View>
+        </View>
+      )}
 
-      <TouchableOpacity className="bg-teal-500 py-2 px-4 rounded-full my-2">
-        <Text className="text-white ">Order Received</Text>
-      </TouchableOpacity>
-  </View>
-
-    <View className='items-center mt-3 mb-5'>
-    <TouchableOpacity className="bg-[#EDF7F6] py-2 px-11 rounded-full my-2 items-center">
-        <Text className="text-black">Shipping Channel link</Text>
-      </TouchableOpacity>
+      <View className="items-center mt-3 mb-5">
+        <TouchableOpacity className="bg-[#EDF7F6] py-2 px-11 rounded-full my-2 items-center">
+          <Text className="text-black">Shipping Channel link</Text>
+        </TouchableOpacity>
         <Text className="text-xs text-gray-500 mt-1 text-center">
           Your payment has been received; this channel will give you updates
           regarding your delivery
         </Text>
-    </View>
+      </View>
 
-      <TouchableOpacity className="bg-[#F4F6F6] py-3 px-4 rounded-full my-4 w-full items-center">
-        <Text className="font-medium">SEND VIDEO TO PROCEED FURTHER</Text>
-      </TouchableOpacity>
+      {/* Payment Popup */}
+      <Modal visible={isPaymentPopupVisible} transparent animationType="slide">
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgba(0,0,0,0.5)",
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "white",
+              borderRadius: 10,
+              padding: 20,
+              width: "90%",
+            }}
+          >
+            <Text className="text-xl font-medium mb-4">Payment Details</Text>
+            <TextInput
+              placeholder="Card Number"
+              className="border border-gray-300 rounded px-3 py-2 mb-4"
+              keyboardType="number-pad"
+            />
+            <TextInput
+              placeholder="Expiry Date (MM/YY)"
+              className="border border-gray-300 rounded px-3 py-2 mb-4"
+              keyboardType="number-pad"
+            />
+            <TextInput
+              placeholder="Card Code (CVC)"
+              className="border border-gray-300 rounded px-3 py-2 mb-4"
+              keyboardType="number-pad"
+            />
+            <TouchableOpacity
+              className="bg-teal-500 py-2 px-4 rounded-full"
+              onPress={handleSubmitPayment}
+            >
+              <Text className="text-white text-center">Submit Payment</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={closePopup}
+              className="mt-3 bg-gray-300 py-2 px-4 rounded-full"
+            >
+              <Text className="text-center">Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </Modal>
     </ScrollView>
   );
 };

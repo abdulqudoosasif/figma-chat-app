@@ -1,12 +1,12 @@
 import { View } from 'react-native'
 import React from 'react'
 import ChannelTitle from './channelChats/ChannelTitle'
-
+import ChannelAdminTitle from './channelChats/ChanelAdminTitle'
 const Chats = () => {
   return (
     <View  className=''>
-   <ChannelTitle/>
-   <ChannelTitle/>
+   
+   <ChannelAdminTitle/>
    <ChannelTitle/>
    <ChannelTitle/>
    <ChannelTitle/>

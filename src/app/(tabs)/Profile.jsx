@@ -1,6 +1,5 @@
 import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
-import ProfileHeader from '../../components/profile/ProfileHeader'
 import UserProfile from '../ProfileScreens/UserProfile'
 
 

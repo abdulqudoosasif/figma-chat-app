@@ -14,13 +14,17 @@
     },
     "ios": {
       "supportsTablet": true,
-      "newArchEnabled": true
+      "newArchEnabled": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to the camera to record verification videos."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff",
-        "newArchEnabled": true
+        "newArchEnabled": true,
+        "permissions": ["CAMERA"]
       }
     },
     "web": {
